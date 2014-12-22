@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+
+  get  '/answers/new/:game_id' => "answers#new"
   resources :answers
 
   resources :questions
@@ -12,6 +15,8 @@ Rails.application.routes.draw do
   resources :media
 
   resources :games
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

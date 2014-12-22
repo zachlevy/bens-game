@@ -14,6 +14,7 @@ class AnswersController < ApplicationController
 
   # GET /answers/new
   def new
+    puts params[:university_id]
     @answer = Answer.new
   end
 
