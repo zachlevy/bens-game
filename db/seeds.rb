@@ -3,5 +3,22 @@
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+
+mediums = Medium.create([
+	{ name: 'TV Shows' },
+	{ name: 'Movies' },
+	{ name: 'Songs' },
+	{ name: 'Movies' },
+	{ name: 'Other' },
+])
+
+categories = Category.create([
+	{ name: 'Canadian Heritage Moments' },
+	{ name: 'Beetles Songs' },
+	{ name: 'Action Movies' },
+	{ name: 'Disney' },
+])
