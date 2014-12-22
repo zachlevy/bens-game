@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
+/* START MIXINS */
+// default shadow for home hero
+@mixin text-shadow ($string: 1px 1px 1px rgba(0, 0, 0, 1)) {
+  text-shadow: $string;
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+/* END MIXINS */
+
+body {
+  padding-top: 50px;
+}

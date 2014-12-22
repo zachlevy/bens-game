@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get  '/answers/new/:game_id' => "answers#new"
+  #get  '/games/show' => "answers#new"
   resources :answers
 
   resources :questions

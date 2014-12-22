@@ -10,6 +10,11 @@ class GamesController < ApplicationController
   # GET /games/1
   # GET /games/1.json
   def show
+    puts "===== game ====="
+    puts @game.id
+    @question = Question.last
+    puts "===== question ====="
+    puts @question.id
   end
 
   # GET /games/new

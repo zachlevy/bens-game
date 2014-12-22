@@ -12,7 +12,6 @@ mediums = Medium.create([
 	{ name: 'TV Shows' },
 	{ name: 'Movies' },
 	{ name: 'Songs' },
-	{ name: 'Movies' },
 	{ name: 'Other' },
 ])
 
