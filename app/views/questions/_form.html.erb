@@ -23,6 +23,15 @@
     <%= f.label :answertext %><br>
     <%= f.text_field :answertext %>
   </div>
+  <div class="field">
+    <%= select_tag "medium", options_for_select(Medium.all.collect{|p| [p.name.to_s, p.id.to_s] }), {class: "form-control" } %>
+  </div>
+  <div class="field">
+    <%= select_tag "category", options_for_select(Category.all.collect{|p| [p.name.to_s, p.id.to_s] }), {class: "form-control" } %>
+  </div>
+  <div class="field">
+    <%= select_tag "questiontype", options_for_select(QuestionType.all.collect{|p| [p.name.to_s, p.id.to_s] }), {class: "form-control" } %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
