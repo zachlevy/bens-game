@@ -22,3 +22,10 @@ categories = Category.create([
 	{ name: 'Action Movies' },
 	{ name: 'Disney' },
 ])
+
+questiontypes = QuestionType.create([
+	{ name: 'Guess Artist' },
+	{ name: 'Guess Title' },
+	{ name: 'Next Word' },
+	{ name: 'Next Line' },
+])
