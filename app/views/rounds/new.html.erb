@@ -33,54 +33,19 @@
 <div class="row players-row">
   <div class="col-xs-12">
     <ul class="list-inline text-center player-list">
+      <% @game.user_games.each do |usergame| %>
       <li>
-        <h4 class="text-center">Ray</h4>
+        <h4 class="text-center"><%= usergame.user.name %></h4>
         <div class="score-wrap">
-          <h1 class="score text-center">12</h1>
+          <h1 class="score text-center"><%= usergame.user.answers.select {|r| r.correct}.size %></h1>
         </div>
         <div class="pseudo-checkbox-wrap">
-          <a class="pseudo-checkbox" data-user="1">
+          <a class="pseudo-checkbox" data-user="<%= usergame.user.id %>">
 
           </a>
         </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" class="input-lg">
-          </label>
-        </div>
       </li>
-      <li>
-        <h4 class="text-center">Ray</h4>
-        <div class="score-wrap">
-          <h1 class="score text-center">12</h1>
-        </div>
-        <div class="pseudo-checkbox-wrap">
-          <a class="pseudo-checkbox" data-user="2">
-
-          </a>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" class="input-lg">
-          </label>
-        </div>
-      </li>
-      <li>
-        <h4 class="text-center">Ray</h4>
-        <div class="score-wrap">
-          <h1 class="score text-center">12</h1>
-        </div>
-        <div class="pseudo-checkbox-wrap">
-          <a class="pseudo-checkbox" data-user="3">
-
-          </a>
-        </div>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" class="input-lg">
-          </label>
-        </div>
-      </li>
+      <% end %>
     </ul>
   </div>
 </div>
@@ -88,7 +53,7 @@
   <div class="col-xs-12">
     <a class="btn btn-primary" href="#"><span class="fa-play-circle-o"></span> Next Question</a>
     <a class="btn btn-default" href="#"><span class="fa fa-plus"></span> New Game</a>
-    <a class="btn btn-default" href="#"><span class="fa fa-plus"></span> New Player</a>
+    <a class="btn btn-default" href="/user/new/<%= @game.id.to_s %>"><span class="fa fa-plus"></span> Add Player</a>
   </div>
 </div>
 

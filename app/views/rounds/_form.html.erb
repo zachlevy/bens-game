@@ -12,16 +12,15 @@
   <% end %>
 
   <div class="field">
-    <input type="text" name="game_id" value="<%= @game.id %>" />
+    <input type="hidden" name="game_id" value="<%= @game.id %>" />
   </div>
 
   <div class="field">
-    <input type="text" name="question_id" value="<%= @question.id %>" />
+    <input type="hidden" name="question_id" value="<%= @question.id %>" />
   </div>
 
   <div class="field">
-    <label for="answers">Answers</label>
-    <input id="answers-input" type="text" name="answers"/>
+    <input type="hidden" id="answers-input" name="answers"/>
   </div>
 
   <div class="actions">

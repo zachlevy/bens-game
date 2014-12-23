@@ -25,15 +25,19 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    
-    if params[:game_id]
-      game = Game.find(params[:game_id])
-      UserGame.create({user: @user, game: game})
-    end
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        if params[:game_id]
+          @game = Game.find(params[:game_id])
+          @usergame = UserGame.new(user_game_params)
+          @usergame.save
+        else
+          puts "no game_id"
+        end
+
+
+        format.html { redirect_to "/rounds/new/" + @game.id.to_s, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new }
@@ -74,6 +78,12 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :game_id)
+    end
+
+    def user_game_params
+      params.permit(:user_id,
+                    :game_id).merge(:user_id => @user.id,
+                                    :game_id => @game.id)
     end
 end
