@@ -35,3 +35,61 @@
 body {
   padding-top: 50px;
 }
+
+/* START GAME PAGE */
+.question-type {
+
+}
+.question-text-wrap {
+	.question-text {
+
+	}
+}
+.timer-bar-wrap {
+
+}
+.timer-text {
+
+}
+.player-list {
+	//margin-left: 3em;
+	li {
+		margin: 0 1em
+	}
+	.new-player-wrap {
+
+	}
+	.new-player {
+
+	}
+}
+.pseudo-checkbox-wrap {
+	.pseudo-checkbox {
+		margin: 0 auto;
+		display: block;
+		height: 100px;
+		width: 100px;
+		background: darkblue;
+	}
+	.pseudo-checkbox-checked {
+		background: darkgreen;
+	}
+}
+.score-wrap {
+	.score {
+		
+	}
+}
+/* END GAME PAGE */
+
+
+
+
+
+
+
+
+
+
+
+

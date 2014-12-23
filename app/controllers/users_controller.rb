@@ -25,6 +25,11 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    
+    if params[:game_id]
+      game = Game.find(params[:game_id])
+      UserGame.create({user: @user, game: game})
+    end
 
     respond_to do |format|
       if @user.save
