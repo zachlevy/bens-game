@@ -11,19 +11,12 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <input type="hidden" name="game_id" value="<%= @game.id %>" />
-  </div>
-
-  <div class="field">
-    <input type="hidden" name="question_id" value="<%= @question.id %>" />
-  </div>
-
-  <div class="field">
-    <input type="hidden" id="answers-input" name="answers"/>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <input type="hidden" name="game_id" value="<%= @game.id %>" />
+  <input type="hidden" name="question_id" value="<%= @question.id %>" />
+  <input type="hidden" id="answers-input" name="answers"/>
+    
+  <div class="col-xs-12 col-sm-4 col-sm-offset-4"
+  <div class="actions text-center">
+    <%= f.submit "Next question", :class => "btn btn-lg btn-block next-question-btn btn-primary text-center" %>
   </div>
 <% end %>

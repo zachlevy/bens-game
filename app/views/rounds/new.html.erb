@@ -50,14 +50,17 @@
   </div>
 </div>
 <div class="row game-select-row">
+  <%= render 'form' %>
   <div class="col-xs-12">
-    <a class="btn btn-primary" href="#"><span class="fa-play-circle-o"></span> Next Question</a>
-    <a class="btn btn-default" href="#"><span class="fa fa-plus"></span> New Game</a>
-    <a class="btn btn-default" href="/user/new/<%= @game.id.to_s %>"><span class="fa fa-plus"></span> Add Player</a>
+    <ul class="list-inline text-center game-select-list">
+      <li>
+        <a class="btn btn-default" href="/games/new"><span class="fa fa-plus"></span> New Game</a>
+      </li>
+      <li>
+        <a class="btn btn-default" href="/users/new/<%= @game.id.to_s %>"><span class="fa fa-plus"></span> Add Player</a>
+      </li>
+    </ul>
+    <!--<a class="btn btn-primary" href="#"><span class="fa-play-circle-o"></span> Next Question</a>-->
   </div>
 </div>
 
-
-<%= render 'form' %>
-
-<%= link_to 'Back', rounds_path %>

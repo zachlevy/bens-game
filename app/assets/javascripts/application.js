@@ -23,7 +23,6 @@ $(document).ready(function () {
 	// start the flow
 	askQuestion();
 	// prefill answer json
-	//$("#answers-input").val("[]");
 	updateAnswers();
 	// when a pseudo-checkbox is clicked on
 	$(".pseudo-checkbox").click(function () {
@@ -88,7 +87,7 @@ function hideAll () {
 	$(".progress-row").addClass("hidden");
 	$(".timer-row").addClass("hidden");
 	$(".players-row").addClass("hidden");
-	$(".game-select-row").addClass("hidden");
+	//$(".game-select-row").addClass("hidden");
 	$(".score-wrap").addClass("hidden");
 	$(".pseudo-checkbox-wrap").addClass("hidden");
 }
@@ -137,13 +136,6 @@ function addAnswer (user, correct) {
 		"correct" : correct
 	};
 	answer_index = $.inArray(data, answer);
-	// if not in array
-	/*
-	if (answer_index != -1) {
-		// remove answer from array
-		answer.splice(answer_index, 1);
-	}
-	*/
 	answer.push(data);
 	answer = JSON.stringify(answer);
 	$("#answers-input").val(answer);
