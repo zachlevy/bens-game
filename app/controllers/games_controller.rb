@@ -20,6 +20,11 @@ class GamesController < ApplicationController
   # GET /games/new
   def new
     @game = Game.new
+    if @game.save
+      redirect_to "/rounds/new/" + @game.id.to_s
+    else
+      puts "===== game broke ====="
+    end
   end
 
   # GET /games/1/edit

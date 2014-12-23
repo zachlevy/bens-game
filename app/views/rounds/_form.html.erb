@@ -12,12 +12,16 @@
   <% end %>
 
   <div class="field">
-    <label for="answers">Answers</label>
-    <input type="text" name="answers"/>
+    <input type="text" name="game_id" value="<%= @game.id %>" />
   </div>
 
   <div class="field">
-    <input type="text" name="game_id" value="<%= params[:game_id] %>" />
+    <input type="text" name="question_id" value="<%= @question.id %>" />
+  </div>
+
+  <div class="field">
+    <label for="answers">Answers</label>
+    <input id="answers-input" type="text" name="answers"/>
   </div>
 
   <div class="actions">

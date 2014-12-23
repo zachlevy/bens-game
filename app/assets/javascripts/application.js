@@ -16,10 +16,50 @@
 //= require turbolinks
 //= require_tree .
 
+// start
 $(document).ready(function () {
 	console.log("application.js ready!");
+	// ready
+	// start the flow
 	askQuestion();
+	// prefill answer json
+	//$("#answers-input").val("[]");
+	updateAnswers();
+	// when a pseudo-checkbox is clicked on
+	$(".pseudo-checkbox").click(function () {
+		console.log("pseudo-checkbox clicked");
+		// reset array
+		if ($(this).hasClass("correct")) {
+			// not correct
+			$(this).removeClass("correct");
+			$(this).css("background", "red");
+		} else {
+			// correct
+			$(this).addClass("correct");
+			$(this).css("background", "green");
+		}
+		updateAnswers();
+	});
 });
+
+// check answers
+function updateAnswers () {
+	$("#answers-input").val("[]");
+	$.each($(".pseudo-checkbox"), function (index, answer) {
+
+		if ($(this).hasClass("correct")) {
+			correct = true;
+		} else {
+			correct = false;
+		}
+		// id in form of answer-id
+		user = $(this).attr("data-user");
+		console.log("for each checkbox");
+		addAnswer(user, correct);
+	});
+}
+
+// timer global
 var globalTotal = 10;
 var globalCounter = globalTotal;
 var globalTimer = window.setInterval(function(){
@@ -33,11 +73,14 @@ var globalTimer = window.setInterval(function(){
 	}
 }, 1000);
 
+// update progress bar
+// takes in counter and total
 function updateProgress (counter, total) {
 	percentage = Math.round(counter * 100 / total);
 	$(".progress-bar").css("width", percentage + "%");
 }
 
+// hides all rows
 function hideAll () {
 	$(".question-type-row").addClass("hidden");
 	$(".question-row").addClass("hidden");
@@ -50,6 +93,7 @@ function hideAll () {
 	$(".pseudo-checkbox-wrap").addClass("hidden");
 }
 
+// flow ask question
 function askQuestion () {
 	console.log("askQuestion");
 	hideAll();
@@ -61,6 +105,7 @@ function askQuestion () {
 	$(".score-wrap").removeClass("hidden");
 }
 
+// flow show suspense
 function suspense () {
 	$(".players-row").removeClass("hidden");
 	$(".timer-text").html("Time Up!");
@@ -72,6 +117,7 @@ function suspense () {
 	}, 5000);
 }
 
+// flow show the answer
 function showAnswer () {
 	console.log("showAnswer");
 	$(".progress-row").addClass("hidden");
@@ -81,6 +127,27 @@ function showAnswer () {
 	$(".pseudo-checkbox-wrap").removeClass("hidden");
 }
 
-
+// add an answer to the answer input
+// takes in a user id and a boolean
+function addAnswer (user, correct) {
+	answer = $("#answers-input").val();
+	answer = jQuery.parseJSON(answer);
+	data = {
+		"user" : user,
+		"correct" : correct
+	};
+	answer_index = $.inArray(data, answer);
+	// if not in array
+	/*
+	if (answer_index != -1) {
+		// remove answer from array
+		answer.splice(answer_index, 1);
+	}
+	*/
+	answer.push(data);
+	answer = JSON.stringify(answer);
+	$("#answers-input").val(answer);
+	console.log("answer: " + answer);
+}
 
 
