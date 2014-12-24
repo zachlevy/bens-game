@@ -36,7 +36,10 @@ class RoundsController < ApplicationController
     @question = Question.where.not(id: asked_ids).order("RANDOM()").last
     puts "===== question ====="
     puts @question
-
+    if !@question.present?
+      flash[:notice] = "You've answered all the questions! You can start a new game if you'd like"
+      redirect_to "/"
+    end
   end
 
   # GET /rounds/1/edit

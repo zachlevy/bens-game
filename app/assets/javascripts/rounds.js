@@ -1,31 +1,36 @@
 $(document).ready(function () {
 	console.log("application.js ready!");
 	// ready
-	// start the flow
-	askQuestion();
-	// speak the question type
-	speak($(".question-type").html());
-	// speak the question text
-	window.setTimeout(function () {
-		speak($(".question-text").html());
-	}, 3500);
-	// prefill answer json
-	updateAnswers();
-	// when a pseudo-checkbox is clicked on
-	$(".pseudo-checkbox").click(function () {
-		console.log("pseudo-checkbox clicked");
-		// reset array
-		if ($(this).hasClass("correct")) {
-			// not correct
-			$(this).removeClass("correct");
-			$(this).removeClass("checked");
-		} else {
-			// correct
-			$(this).addClass("correct");
-			$(this).addClass("checked");
-		}
+	console.log($("#new-round").html());
+	if($("#new-round").html() === "true") {
+		// start the flow
+		askQuestion();
+		// speak the question type
+		speak($(".question-type").html());
+		// speak the question text
+		window.setTimeout(function () {
+			speak($(".question-text").html());
+		}, 3500);
+		// prefill answer json
 		updateAnswers();
-	});
+		// when a pseudo-checkbox is clicked on
+		$(".pseudo-checkbox").click(function () {
+			console.log("pseudo-checkbox clicked");
+			// reset array
+			if ($(this).hasClass("correct")) {
+				// not correct
+				$(this).removeClass("correct");
+				$(this).removeClass("checked");
+			} else {
+				// correct
+				$(this).addClass("correct");
+				$(this).addClass("checked");
+			}
+			updateAnswers();
+		});
+	} else {
+		console.log("not new round page");
+	}
 });
 
 // check answers
@@ -46,13 +51,13 @@ function updateAnswers () {
 }
 
 // timer global
-var globalTotal = 25;
+var globalTotal = 15;
 var globalCounter = globalTotal;
 var globalTimer = window.setInterval(function(){
 	// every 1s
 	globalCounter -=1;
-	if (globalCounter < 5 && globalCounter > 1) {
-		speak(globalCounter - 1);
+	if (globalCounter < 4 && globalCounter > 0) {
+		speak(globalCounter);
 	}
 	$(".timer-text").html(globalCounter + "s");
 	updateProgress(globalCounter, globalTotal);
@@ -104,7 +109,7 @@ function suspense () {
 		// wait 3s
 		console.log("3 seconds past timer");
 		showAnswer();
-	}, 5000);
+	}, 3000);
 }
 
 // flow show the answer

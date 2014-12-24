@@ -1,19 +1,26 @@
+<p id="notice"><%= notice %></p>
 <h1>Listing games</h1>
 
-<table>
+<table class="table table-responsive table-striped">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Game #</th>
+      <th>Users</th>
+      <th>Time</th>
+      <th>Play</th>
     </tr>
   </thead>
-
   <tbody>
     <% @games.each do |game| %>
       <tr>
-        <td><%= link_to 'Play', "/rounds/new/" + game.id.to_s %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="text-center"><%= game.id %></td>
+        <td>
+          <% game.user_games.each do |usergame| %>
+            <%= usergame.user.name %> 
+          <% end %>
+        </td>
+        <td><%= game.created_at %></td>
+        <td><%= link_to 'Play', "/rounds/new/" + game.id.to_s, :class=>"btn btn-primary btn-block" %></td>
       </tr>
     <% end %>
   </tbody>
