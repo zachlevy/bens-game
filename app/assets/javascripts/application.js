@@ -31,11 +31,11 @@ $(document).ready(function () {
 		if ($(this).hasClass("correct")) {
 			// not correct
 			$(this).removeClass("correct");
-			$(this).css("background", "red");
+			$(this).removeClass("checked");
 		} else {
 			// correct
 			$(this).addClass("correct");
-			$(this).css("background", "green");
+			$(this).addClass("checked");
 		}
 		updateAnswers();
 	});

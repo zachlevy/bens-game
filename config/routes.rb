@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   get  '/users/new/:game_id' => "users#new"
 
-  get  '/rounds/new/:game_id' => "rounds#new"  
+  get  '/rounds/new/:game_id' => "rounds#new"
+
+  root 'games#index'
 
   resources :answers
 

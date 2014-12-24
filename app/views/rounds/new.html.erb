@@ -1,17 +1,17 @@
 <p id="notice"><%= notice %></p>
 <div class="row question-type-row">
   <div class="col-xs-12">
-    <h3 class="question-type text-center">What is the next line?</h3>
+    <h3 class="question-type text-center"><%= QuestionType.find(@question.questiontype_id).name %></h3>
   </div>
 </div>
 <div class="row question-row">
   <div class="col-xs-12">
-    <h1 class="question-text-wrap text-center">"<span class="question-text">Question Text</span>"</h1>
+    <h1 class="question-text-wrap text-center">"<span class="question-text"><%= @question.questiontext %></span>"</h1>
   </div>
 </div>
 <div class="row answer-row">
   <div class="col-xs-12">
-    <h1 class="answer-text-wrap text-center">"<span class="answer-text">Answer Text</span>"</h1>
+    <h1 class="answer-text-wrap text-center">"<span class="answer-text"><%= @question.answertext %></span>"</h1>
   </div>
 </div>
 <div class="row progress-row">

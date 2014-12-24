@@ -69,10 +69,13 @@ body {
 		display: block;
 		height: 100px;
 		width: 100px;
-		background: darkblue;
+		background: url(https://i.imgur.com/rNu8cOr.png) center center no-repeat;
+		&:hover {
+			cursor: pointer;
+		}
 	}
-	.pseudo-checkbox-checked {
-		background: darkgreen;
+	.pseudo-checkbox.checked {
+		background: url(https://i.imgur.com/eZ6FhH2.png) center center no-repeat;
 	}
 }
 .score-wrap {

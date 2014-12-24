@@ -23,8 +23,8 @@ categories = Category.create([
 ])
 
 questiontypes = QuestionType.create([
-	{ name: 'Guess Artist' },
-	{ name: 'Guess Title' },
-	{ name: 'Next Word' },
-	{ name: 'Next Line' },
+	{ name: 'Guess the artist\'s name' },
+	{ name: 'Guess the title' },
+	{ name: 'Guess the next word' },
+	{ name: 'Guess the next line' },
 ])
