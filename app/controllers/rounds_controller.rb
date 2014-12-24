@@ -14,15 +14,26 @@ class RoundsController < ApplicationController
 
   # GET /rounds/new
   def new
-    @round = Round.new
     if params[:game_id]
       # get the game
       @game = Game.find(params[:game_id])
       puts "===== game ====="
       puts @game
     end
+    if @game.user_games.count == 0
+      redirect_to "/users/new/" + @game.id.to_s
+    end
+    @round = Round.new
     # get a random question
-    @question = Question.all.order("RANDOM()").last
+    #asked_answers = @game.user_games.first.user.answers
+    asked_answers = @game.answers
+    asked_ids = []
+    asked_answers.each do |asked_answer|
+      asked_ids.push(asked_answer.question_id) unless asked_ids.include?(asked_answer.question_id)
+    end
+    puts "===== answers ====="
+    puts asked_ids
+    @question = Question.where.not(id: asked_ids).order("RANDOM()").last
     puts "===== question ====="
     puts @question
 
