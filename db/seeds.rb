@@ -9,7 +9,7 @@
 
 
 mediums = Medium.create([
-	{ name: 'TV Shows' },
+	{ name: 'TV' },
 	{ name: 'Movies' },
 	{ name: 'Songs' },
 	{ name: 'Other' },
@@ -20,6 +20,10 @@ categories = Category.create([
 	{ name: 'Beetles Songs' },
 	{ name: 'Action Movies' },
 	{ name: 'Disney' },
+	{ name: 'Classics'},
+	{ name: 'Sci-Fi/Fantasy'},
+	{ name: 'Comedy'},
+	{ name: 'Other'}
 ])
 
 questiontypes = QuestionType.create([
@@ -28,3 +32,5 @@ questiontypes = QuestionType.create([
 	{ name: 'Guess the next word' },
 	{ name: 'Guess the next line' },
 ])
+
+
